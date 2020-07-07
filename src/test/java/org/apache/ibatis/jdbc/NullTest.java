@@ -15,11 +15,17 @@
  */
 package org.apache.ibatis.jdbc;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.StringTypeHandler;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+
+import java.io.InputStream;
 
 public class NullTest {
 
@@ -29,4 +35,20 @@ public class NullTest {
     assertTrue(Null.STRING.getTypeHandler() instanceof StringTypeHandler);
   }
 
+
+  @Test
+  public void de() throws Exception{
+    InputStream inputStream = Resources.getResourceAsStream("mybatis-conf.xml");
+
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    SqlSession session = sqlSessionFactory.openSession();
+
+//        User user = new User("admin", "男", 26);
+//        session.insert("mapper.UserMapper.save",user);
+    session.insert("mapper.UserMapper.save","from user");
+
+    session.commit();
+    session.close();
+  }
 }
