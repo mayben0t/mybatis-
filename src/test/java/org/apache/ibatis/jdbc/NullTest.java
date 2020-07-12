@@ -42,11 +42,12 @@ public class NullTest {
 
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
+    sqlSessionFactory.getConfiguration();
     SqlSession session = sqlSessionFactory.openSession();
 
 //        User user = new User("admin", "男", 26);
 //        session.insert("mapper.UserMapper.save",user);
-    session.insert("mapper.UserMapper.save","from user");
+    session.insert("mapper.UserMapper.save","from use33xsr");
 
     session.commit();
     session.close();
