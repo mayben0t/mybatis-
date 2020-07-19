@@ -14,12 +14,18 @@
 <!--    <properties resource="jdbc.properties" />-->
     <settings>
         <setting name="logImpl" value="LOG4J"/>
+<!--        <setting name="cachedEnabled" value="true"/>-->
+        <setting name="logPrefix" value="我流泪了，你呢:"/>
     </settings>
 
     <!-- 为SQL映射配置文件的parameterType和resultType来设置别名。别名默认为首字母小写。 -->
     <typeAliases>
         <package name="com.itiis.client.entity"/>
     </typeAliases>
+
+<!--    <typeHandlers>-->
+<!--        <typeHandler handler=""-->
+<!--    </typeHandlers>-->
 
     <!-- environment 元素体中包含了事务管理和连接池的配置 -->
     <environments default="dev">
@@ -29,7 +35,7 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/youth_summer?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"/>
-                <property name="username" value="${username:root}"/>
+                <property name="username" value="root"/>
                 <property name="password" value="${wxExtend}"/>
 <!--                <property name="minIdle" value="5"/>-->
 <!--                <property name="maxIdle" value="10"/>&lt;!&ndash; maxIdle，最大空闲数 &ndash;&gt;-->

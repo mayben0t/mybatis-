@@ -15,6 +15,9 @@
  */
 package org.apache.ibatis.jdbc;
 
+import bean.User;
+import com.alibaba.fastjson.JSONObject;
+import mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -47,7 +50,12 @@ public class NullTest {
 
 //        User user = new User("admin", "男", 26);
 //        session.insert("mapper.UserMapper.save",user);
-    session.insert("mapper.UserMapper.save","from use33xsr");
+//    session.insert("mapper.UserMapper.save","from use33xsr");
+    UserMapper mapper = session.getMapper(UserMapper.class);
+    User select = mapper.select(2);
+    System.out.println(JSONObject.toJSONString(select));
+    System.out.println("aa");
+
 
     session.commit();
     session.close();

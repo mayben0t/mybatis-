@@ -8,4 +8,37 @@
 <!--        values(#{name},#{sex},#{age})-->
 <!--    </insert>-->
 
+<!--    <resultMap id="base_result_2" type="bean.User">-->
+<!--        <association property="bookList" column=""-->
+<!--    </resultMap>-->
+
+    <resultMap id="base_result" type="bean.User">
+        <id property="id" column="uid"/>
+<!--        <association property="id" column="uid" javaType="int"></association>-->
+<!--        <constructor>-->
+<!--            <idArg column="uid" javaType="int"/>-->
+<!--        </constructor>-->
+        <result property="name" column="uname"/>
+
+        <collection property="bookList" ofType="bean.Book" javaType="ArrayList">
+            <id property="id" column="bid"/>
+            <result property="name" column="bname"/>
+        </collection>
+<!--        <association property=""-->
+    </resultMap>
+
+<!--    <cache/>-->
+
+    <select id="select" parameterType="int" resultMap="base_result">
+        select
+        a.id as uid,
+        a.name as uname,
+        b.id as bid,
+        b.name as bname
+        from user a
+        join book b
+        on a.id = b.user_id
+        where a.id = #{id,jdbcType=INTEGER}
+        limit 1
+    </select>
 </mapper>
