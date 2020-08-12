@@ -12,4 +12,5 @@ public interface UserMapper {
 
 
     public User select(@Param("id")Integer uid);
+    public User selectone(@Param("id")Integer uid);
 }

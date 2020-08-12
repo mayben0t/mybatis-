@@ -52,7 +52,8 @@ public class NullTest {
 //        session.insert("mapper.UserMapper.save",user);
 //    session.insert("mapper.UserMapper.save","from use33xsr");
     UserMapper mapper = session.getMapper(UserMapper.class);
-    User select = mapper.select(2);
+    User select = mapper.selectone(2);
+//    mapper.save("测试新增");
     System.out.println(JSONObject.toJSONString(select));
     System.out.println("aa");
 
@@ -60,4 +61,30 @@ public class NullTest {
     session.commit();
     session.close();
   }
+
+  @Test
+  public void de2() throws Exception{
+    InputStream inputStream = Resources.getResourceAsStream("mybatis-conf.xml");
+
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    sqlSessionFactory.getConfiguration();
+
+    SqlSession session = sqlSessionFactory.openSession();
+
+//    session.
+
+//        User user = new User("admin", "男", 26);
+//        session.insert("mapper.UserMapper.save",user);
+//    session.insert("mapper.UserMapper.save","from use33xsr");
+    UserMapper mapper = session.getMapper(UserMapper.class);
+//    User select = mapper.selectone(2);
+//    System.out.println(JSONObject.toJSONString(select));
+    System.out.println("aa");
+
+
+    session.commit();
+    session.close();
+  }
 }
+

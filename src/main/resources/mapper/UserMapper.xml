@@ -39,6 +39,16 @@
         join book b
         on a.id = b.user_id
         where a.id = #{id,jdbcType=INTEGER}
+--         limit 1
+    </select>
+
+
+    <select id="selectone" parameterType="int" resultType="bean.User">
+        select
+        *
+        from user
+        where id = #{id}
         limit 1
     </select>
+
 </mapper>

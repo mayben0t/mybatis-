@@ -20,7 +20,7 @@
 
     <!-- 为SQL映射配置文件的parameterType和resultType来设置别名。别名默认为首字母小写。 -->
     <typeAliases>
-        <package name="com.itiis.client.entity"/>
+<!--        <package name="com.itiis.client.entity"/>-->
     </typeAliases>
 
 <!--    <typeHandlers>-->
@@ -36,7 +36,7 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/youth_summer?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"/>
                 <property name="username" value="root"/>
-                <property name="password" value="${wxExtend}"/>
+                <property name="password" value="123456"/>
 <!--                <property name="minIdle" value="5"/>-->
 <!--                <property name="maxIdle" value="10"/>&lt;!&ndash; maxIdle，最大空闲数 &ndash;&gt;-->
 <!--                <property name="maxActive" value="10"/>-->
